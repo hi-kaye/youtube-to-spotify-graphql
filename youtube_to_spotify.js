@@ -1,20 +1,20 @@
-var fs = require("fs");
-var readline = require("readline");
-var { google } = require("googleapis");
-var OAuth2 = google.auth.OAuth2;
-var cs = require("./client_secret.json");
-var youtubedl = require("youtube-dl");
-var fetch = require("node-fetch");
-var url = "http://localhost:4000/graphql";
+const fs = require("fs");
+const readline = require("readline");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const cs = require("./client_secret.json");
+const youtubedl = require("youtube-dl");
+const fetch = require("node-fetch");
+const url = "http://localhost:4000/graphql";
 
 /**START from google api quick start - used for authorization**/
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/youtube-nodejs-quickstart.json
-var SCOPES = ["https://www.googleapis.com/auth/youtube.readonly"];
-var TOKEN_DIR =
+const SCOPES = ["https://www.googleapis.com/auth/youtube.readonly"];
+const TOKEN_DIR =
   (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) +
   "/.credentials/";
-var TOKEN_PATH = TOKEN_DIR + "youtube-nodejs-quickstart.json";
+const TOKEN_PATH = TOKEN_DIR + "youtube-nodejs-quickstart.json";
 
 // Load client secrets from a local file.
 fs.readFile("client_secret.json", function processClientSecrets(err, content) {
@@ -34,10 +34,10 @@ fs.readFile("client_secret.json", function processClientSecrets(err, content) {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback) {
-  var clientSecret = cs.web.client_secret;
-  var clientId = cs.web.client_id;
-  var redirectUrl = cs.web.redirect_uris[0];
-  var oauth2Client = new OAuth2(clientId, clientSecret, redirectUrl);
+  const clientSecret = cs.web.client_secret;
+  const clientId = cs.web.client_id;
+  const redirectUrl = cs.web.redirect_uris[0];
+  const oauth2Client = new OAuth2(clientId, clientSecret, redirectUrl);
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, function (err, token) {
@@ -59,12 +59,12 @@ function authorize(credentials, callback) {
  *     client.
  */
 function getNewToken(oauth2Client, callback) {
-  var authUrl = oauth2Client.generateAuthUrl({
+  const authUrl = oauth2Client.generateAuthUrl({
     access_type: "offline",
     scope: SCOPES,
   });
   console.log("Authorize this app by visiting this url: ", authUrl);
-  var rl = readline.createInterface({
+  const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
