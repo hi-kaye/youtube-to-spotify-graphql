@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^1.0.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "google-auth-library": "^6.1.6",
+    "googleapis": "^67.0.0",
+    "graphql": "^15.5.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "superagent": "^6.1.0",
+    "youtube-dl": "^3.1.0"
+  }
+}
