@@ -153,7 +153,7 @@ function createPlaylist(byName) {
     superagent
       .post(`https://api.spotify.com/v1/users/${spotifyUserId}/playlists`)
       .send({
-        name: `"${byName}"`,
+        name: `${byName}`,
         description: "Playlist generated from Youtube playlist",
         public: false,
       })
